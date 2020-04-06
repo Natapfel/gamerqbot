@@ -9,7 +9,7 @@ const InvalidMsg = 'Hi there! The Paddle channel "Gameplay Requests" is only for
 const commandHandlerForCommandName = {};
 commandHandlerForCommandName['gamereq'] = (msg) => {
     if (bot.channel) {
-        const message = msg.content.slice(13);
+        const message = msg.content.slice(9);
         const mention = msg.author.mention;
         return bot.channel.createMessage(mention + ' has posted the following game request:' + '```' + message + '```' + 'If you are interested react to this post with emojis to let them know!!');
     }
