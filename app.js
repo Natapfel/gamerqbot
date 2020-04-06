@@ -4,7 +4,7 @@ const eris = require('eris');
 const bot = new eris.Client('Njk2NzYzMzQzNDk4OTAzNjgy.XouBNA.Vb_7uCsBBNZvrPRVj7RIfO3rHmY');
 
 const PREFIX = '!';
-const InvalidMsg = 'Hi there! The Paddle channel "Gameplay Requests" is only for posting game requests and expressing interest by reacting to them with emojis. If you would like to post a game request, please use the command "!GameRequest". If I am having issues, please let Nat know so he can fix me!';
+const InvalidMsg = 'Hi there! The Paddles #gameplay-requests channel is only for posting game requests and expressing interest by reacting to them with emojis. If you would like to post a game request, please use the command "!gamereq". If I am having issues, please let Nat know so he can fix me!';
 
 const commandHandlerForCommandName = {};
 commandHandlerForCommandName['gamereq'] = (msg) => {
