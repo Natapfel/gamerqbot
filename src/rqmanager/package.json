@@ -1,0 +1,9 @@
+{
+  "name": "rqmanager",
+  "version": "0.0.0",
+  "description": "rqmanager",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  }
+}

@@ -1,0 +1,4 @@
+C:\Users\natan\gamerqmanager\src\rqmanager\obj\Debug\rqmanager.njsprojAssemblyReference.cache
+C:\Users\natan\gamerqmanager\src\rqmanager\bin\Microsoft.NodejsTools.WebRole.dll
+C:\Users\natan\gamerqmanager\gamerqbot\src\rqmanager\obj\Debug\rqmanager.njsprojAssemblyReference.cache
+C:\Users\natan\gamerqmanager\gamerqbot\src\rqmanager\bin\Microsoft.NodejsTools.WebRole.dll

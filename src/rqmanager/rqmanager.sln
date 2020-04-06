@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "rqmanager", "rqmanager.njsproj", "{C678E8C4-BF09-498A-9C62-1C8FDA9260F9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C678E8C4-BF09-498A-9C62-1C8FDA9260F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C678E8C4-BF09-498A-9C62-1C8FDA9260F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C678E8C4-BF09-498A-9C62-1C8FDA9260F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C678E8C4-BF09-498A-9C62-1C8FDA9260F9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2C6AEB48-066D-4E43-BAB3-FAB047339F3F}
+	EndGlobalSection
+EndGlobal
