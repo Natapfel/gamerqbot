@@ -4,14 +4,14 @@ const eris = require('eris');
 const bot = new eris.Client('Njk2NzYzMzQzNDk4OTAzNjgy.XouBNA.Vb_7uCsBBNZvrPRVj7RIfO3rHmY');
 
 const PREFIX = '!';
-const InvalidMsg = 'Hi there! The Paddles #gameplay-requests channel is only for posting game requests and expressing interest by reacting to them with emojis. If you would like to post a game request, please use the command "!gamereq". If I am having issues, please let Nat know so he can fix me!';
+const InvalidMsg = 'Hi there! The Paddles __**#gameplay-requests**__ channel is only for posting game requests and expressing interest by reacting to them with emojis. If you would like to post a game request, please use the command "!gamereq". If I am having issues, please let Nat know so he can fix me!';
 
 const commandHandlerForCommandName = {};
 commandHandlerForCommandName['gamereq'] = (msg) => {
     if (bot.channel) {
         const message = msg.content.slice(9);
         const mention = msg.author.mention;
-        return bot.channel.createMessage(mention + ' has posted the following game request:' + '```' + message + '```' + 'If you are interested react to this post with emojis to let them know!!');
+        return bot.channel.createMessage(mention + ' has posted the following game request:' + '```css' + message + '```' + 'If you are interested react to this post with emojis to let them know!!');
     }
 
     return msg.channel.createMessage('Error. Could not create message! Please notify Nat.');
