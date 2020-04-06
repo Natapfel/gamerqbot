@@ -4,9 +4,13 @@
   "description": "rqmanager",
   "main": "app.js",
   "scripts": {
-    "start" : "node app.js"
+      "start": "node app.js"
   },
   "author": {
-    "name": ""
+      "name": ""
+  },
+  "engines": {
+      "node": "12.16.1",
+      "npm": "6.13.4"
   }
 }
