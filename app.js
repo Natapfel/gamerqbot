@@ -17,6 +17,13 @@ commandHandlerForCommandName['GameRequest'] = (msg) => {
     return msg.channel.createMessage('Error. Could not create message! Please notify Nat.');
 };
 
+commandHandlerForCommandName['GetServer'] = (msg) => {
+    if (!bot.channel) {
+       return msg.channel.createMessage('Error. Could not find channel! Please notify Nat.');
+    }
+    return msg.channel.createMessage('My channel is currently set to: ' + bot.channel.mention);
+};
+
 commandHandlerForCommandName['SetServer'] = (msg, args) => {
     bot.guild = msg.channel.guild;
 
@@ -47,29 +54,26 @@ bot.on('messageCreate', async (msg) => {
         return;
     }
 
-    // Ignore messages not in the bot's set channel
-    if (bot.channel && !bot.channel) {
-        return;
-    }
-
     // Ignore messages from self or bots
     if (msg.author.bot) {
         return;
     }
     else
     {
-        msg.delete();
-        if (!content.startsWith(PREFIX))
+        if (bot.channel === msg.channel)
         {
-            try {
-                (await msg.author.getDMChannel()).createMessage(InvalidMsg);
-            } catch (err) {
-                // There are various reasons why sending a message may fail.
-                // The API might time out or choke and return a 5xx status,
-                // or the bot may not have permission to send the
-                // message (403 status).
-                console.warn('Failed to respond to msg.');
-                console.warn(err);
+            msg.delete();
+            if (!content.startsWith(PREFIX)) {
+                try {
+                    (await msg.author.getDMChannel()).createMessage(InvalidMsg);
+                } catch (err) {
+                    // There are various reasons why sending a message may fail.
+                    // The API might time out or choke and return a 5xx status,
+                    // or the bot may not have permission to send the
+                    // message (403 status).
+                    console.warn('Failed to respond to msg.');
+                    console.warn(err);
+                }
             }
         }
     }
