@@ -7,7 +7,7 @@ const PREFIX = '!';
 const InvalidMsg = 'Hi there! The Paddle channel "Gameplay Requests" is only for posting game requests and expressing interest by reacting to them with emojis. If you would like to post a game request, please use the command "!GameRequest". If I am having issues, please let Nat know so he can fix me!';
 
 const commandHandlerForCommandName = {};
-commandHandlerForCommandName['GameRequest'] = (msg) => {
+commandHandlerForCommandName['gamereq'] = (msg) => {
     if (bot.channel) {
         const message = msg.content.slice(13);
         const mention = msg.author.mention;
@@ -17,14 +17,14 @@ commandHandlerForCommandName['GameRequest'] = (msg) => {
     return msg.channel.createMessage('Error. Could not create message! Please notify Nat.');
 };
 
-commandHandlerForCommandName['GetServer'] = (msg) => {
+commandHandlerForCommandName['getserver'] = (msg) => {
     if (!bot.channel) {
        return msg.channel.createMessage('Error. Could not find channel! Please notify Nat.');
     }
     return msg.channel.createMessage('My channel is currently set to: ' + bot.channel.mention);
 };
 
-commandHandlerForCommandName['SetServer'] = (msg, args) => {
+commandHandlerForCommandName['setserver'] = (msg, args) => {
     bot.guild = msg.channel.guild;
 
     bot.guild.channels.forEach(myFunc);
