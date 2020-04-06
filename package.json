@@ -1,16 +1,19 @@
 {
-  "name": "rqmanager",
-  "version": "0.0.0",
-  "description": "rqmanager",
-  "main": "app.js",
-  "scripts": {
-      "start": "node app.js"
-  },
-  "author": {
-      "name": ""
-  },
-  "engines": {
-      "node": "12.16.1",
-      "npm": "6.13.4"
-  }
+   "name": "rqmanager",
+   "version": "0.0.0",
+   "description": "rqmanager",
+   "main": "app.js",
+   "scripts": {
+       "start": "node app.js"
+   },
+   "author": {
+       "name": ""
+   },
+   "engines": {
+       "node": "12.16.1",
+       "npm": "6.13.4"
+   },
+   "dependencies": {
+       "eris": "0.11.2"
+   }
 }
