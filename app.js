@@ -5,45 +5,60 @@ const bot = new eris.Client('Njk2NzYzMzQzNDk4OTAzNjgy.XouBNA.Vb_7uCsBBNZvrPRVj7R
 
 const PREFIX = '!';
 const InvalidMsg = 'Hi there! The Paddles __**#gameplay-requests**__ channel is only for posting game requests and expressing interest by reacting to them with emojis. If you would like to post a game request, please use the command "!gamereq". If I am having issues, please let Nat know so he can fix me!';
+var botguild;
+var botchannel;
+const channeltouse = "gameplay-requests";
 
 const commandHandlerForCommandName = {};
 commandHandlerForCommandName['gamereq'] = (msg) => {
-    if (bot.channel) {
+    if (msg.channel != botchannel) {
+        return;
+    }
+
+    if (botchannel) {
         const message = msg.content.slice(9);
         const mention = msg.author.mention;
-        return bot.channel.createMessage(mention + ' has posted the following game request:' + '**```' + message + '```**' + 'If you are interested react to this post with emojis to let them know!!');
+        return botchannel.createMessage(mention + ' has posted the following game request:' + '**```' + message + '```**' + 'If you are interested react to this post with emojis to let them know!!');
     }
 
     return msg.channel.createMessage('Error. Could not create message! Please notify Nat.');
 };
 
 commandHandlerForCommandName['getserver'] = (msg) => {
-    if (!bot.channel) {
+    if (msg.channel != botchannel) {
+        return;
+    }
+
+    if (!botchannel) {
        return msg.channel.createMessage('Error. Could not find channel! Please notify Nat.');
     }
-    return msg.channel.createMessage('My channel is currently set to: ' + bot.channel.mention);
+    return msg.channel.createMessage('My channel is currently set to: ' + botchannel.mention);
 };
 
 commandHandlerForCommandName['setserver'] = (msg, args) => {
-    bot.guild = msg.channel.guild;
+    if (msg.channel != botchannel) {
+        return;
+    }
 
-    bot.guild.channels.forEach(myFunc);
+    botguild = msg.channel.guild;
+
+    botguild.channels.forEach(myFunc);
     function myFunc(channel) {
         if (channel.name == args[0] || channel.mention == args)
         {
-            bot.channel = channel;
+            botchannel = channel;
         }
     }
 
-    if (!bot.channel)
+    if (!botchannel)
     {
-        bot.channel === args.slice(1);
-        if (!bot.Channel) {
+        botchannel === args.slice(1);
+        if (!botchannel) {
             return msg.channel.createMessage('Error. Could not find channel! Please notify Nat.');
         }
     }
 
-    return msg.channel.createMessage(`Channel set to ${bot.guild.name}:> ${args}!`);
+    return msg.channel.createMessage(`Channel set to ${botguild.name}:> ${args}!`);
 };
 
 bot.on('messageCreate', async (msg) => {
@@ -60,7 +75,22 @@ bot.on('messageCreate', async (msg) => {
     }
     else
     {
-        if (bot.channel === msg.channel)
+        if (botguild != msg.channel.guild)
+        {
+            botguild = msg.channel.guild;
+        }
+
+        if (!botchannel && botguild)
+        {
+            botguild.channels.forEach(myFunc);
+            function myFunc(channel) {
+                if (channel.name == channeltouse) {
+                    botchannel = channel;
+                }
+            }
+        }
+
+        if (botchannel === msg.channel)
         {
             msg.delete();
             if (!content.startsWith(PREFIX)) {
